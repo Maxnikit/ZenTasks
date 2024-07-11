@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "analyze": "ANALYZE=true next build",
+    "analyze": "npx cross-env ANALYZE=true npm run build",
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "next lint && npm run lint:stylelint",
