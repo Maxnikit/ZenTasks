@@ -5,7 +5,7 @@ import { theme } from '../theme';
 
 export const metadata = {
   title: 'ZenTasks',
-  description: 'I am using Mantine with Next.js!',
+  description: 'An Yin and Yang themed To-Do website',
 };
 
 export default function RootLayout({ children }: { children: any }) {
