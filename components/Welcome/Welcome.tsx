@@ -4,28 +4,20 @@ import Link from 'next/link';
 
 export function Welcome() {
   return (
-    <Stack>
-      <Title className={classes.title} ta="center" mt={100}>
+    <div className="flex flex-col gap-5 items-center justify-center mt-20 ">
+      <h1 className="text-8xl tracking-tight font-black">
         Welcome to{' '}
-        <Text
-          inherit
-          component="span"
-          c="teal"
-          // style={{ color: 'var(--mantine-primary-color-filled)' }}
-        >
+        <span className=" bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text  text-transparent">
           ZenTasks
-        </Text>
-      </Title>
-      <Title order={1} ta="center" size="lg" mx="auto" mt="xl">
-        Balance your Your Tasks with Ease and Serenity
-      </Title>
-      {/* TODO later lead to login page */}
-      <Button component={Link} href="/webapp" px={30} radius={20} mx="auto">
+        </span>
+      </h1>
+      <h2 className="mt-5 text-3xl">Balance your Your Tasks with Ease and Serenity</h2>
+      <Button className="px-6 rounded " component={Link} href="/webapp">
         Start now
       </Button>
-      <Button component={Link} href="/login" px={30} radius={20} mx="auto">
+      <Button component={Link} href="/login" className="px-6 rounded " mx="auto">
         TEMPORARY Login
       </Button>
-    </Stack>
+    </div>
   );
 }
