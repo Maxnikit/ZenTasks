@@ -1,5 +1,4 @@
 import { Title, Text, Anchor, getPrimaryShade, Button, Center, Stack } from '@mantine/core';
-import classes from './Welcome.module.css';
 import Link from 'next/link';
 
 export function Welcome() {
