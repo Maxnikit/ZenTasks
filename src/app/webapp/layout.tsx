@@ -1,6 +1,5 @@
-import { Flex } from '@mantine/core';
-import React from 'react';
-import SideNav from '@/components/webapp/SideNav/SideNav';
+import React from "react";
+import SideNav from "@/components/webapp/SideNav/SideNav";
 
 type Props = { children: React.ReactNode };
 
