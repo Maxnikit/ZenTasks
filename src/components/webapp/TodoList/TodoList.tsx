@@ -7,7 +7,7 @@ const TodoList = () => {
   const todos = useAppSelector((state) => state.todos.value);
 
   return (
-    <ul>
+    <ul className="divide-y divide-neutral-700">
       {todos.map((todo) => (
         <li key={todo.id}>
           <TodoTask task={todo} />

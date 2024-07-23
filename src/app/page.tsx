@@ -1,11 +1,7 @@
 "use client";
 import Link from "next/link";
-import { decrement, increment } from "@/lib/features/todos/todosSlice";
-import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export default function Home() {
-  const count = useAppSelector((state) => state.todo.value);
-  const dispatch = useAppDispatch();
   return (
     <main className="flex min-h-screen flex-col items-center gap-20 p-24">
       {/* <div className="flex flex-col gap-5 items-center justify-center mt-20 "> */}
@@ -36,18 +32,6 @@ export default function Home() {
           TEMPORARY login
         </button>
       </Link>
-      <div className="flex flex-row gap-5">
-        {" "}
-        <button onClick={() => dispatch(increment())} type="button">
-          +
-        </button>
-        <p>{count}</p>
-        <button onClick={() => dispatch(decrement())} type="button">
-          -
-        </button>
-      </div>
-
-      {/* </div> */}
     </main>
   );
 }
