@@ -8,7 +8,7 @@ export default function Home() {
   const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+    <main className="flex min-h-screen flex-col items-center gap-20 p-24">
       {/* <div className="flex flex-col gap-5 items-center justify-center mt-20 "> */}
       <h1 className="text-8xl tracking-tight font-black">
         Welcome to{" "}
@@ -18,13 +18,8 @@ export default function Home() {
       </h1>
       <h2 className="mt-5 text-3xl">
         Balance your Your Tasks with{" "}
-        <span className="font-bold bg-gradient-to-r from-teal-500 to-teal-700 bg-clip-text  text-transparent">
-          Ease
-        </span>{" "}
-        and{" "}
-        <span className="font-bold bg-gradient-to-r from-teal-700 to-teal-500 bg-clip-text  text-transparent">
-          Serenity
-        </span>
+        <span className="font-bold text-teal-500">Ease</span> and{" "}
+        <span className="font-bold text-teal-500">Serenity</span>
       </h2>
       <Link href="/webapp">
         <button
