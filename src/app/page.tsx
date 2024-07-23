@@ -2,11 +2,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { decrement, increment } from "@/lib/features/todos/todosSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export default function Home() {
-  const count = useSelector((state) => state.counter.value);
-  const dispatch = useDispatch();
+  const count = useAppSelector((state) => state.counter.value);
+  const dispatch = useAppDispatch();
   return (
     <main className="flex min-h-screen flex-col items-center gap-20 p-24">
       {/* <div className="flex flex-col gap-5 items-center justify-center mt-20 "> */}
