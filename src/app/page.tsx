@@ -23,7 +23,7 @@ export default function Home() {
       <Link href="/webapp">
         <button
           type="button"
-          className="mb-2 me-2 rounded-full bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800"
+          className="mb-2 rounded-full bg-teal-700 px-5 py-2.5 text-center text-2xl font-medium text-white hover:bg-teal-800"
         >
           Start now
         </button>
