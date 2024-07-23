@@ -6,11 +6,12 @@ export default function AddTaskForm() {
   const [task, setTask] = useState("");
 
   const dispatch = useAppDispatch();
-  const handleAddTask = (text: string) => {
+  const handleAddTask = (title: string) => {
     const newTodo = {
       id: Date.now(),
-      text: text,
+      title: title,
       completed: false,
+      text: "",
     };
     dispatch(addTodo(newTodo));
   };

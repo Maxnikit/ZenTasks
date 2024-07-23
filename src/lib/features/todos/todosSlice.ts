@@ -26,15 +26,35 @@ export const todoSlice = createSlice({
         todo.completed = !todo.completed;
       }
     },
-    editTodo: (state, action: PayloadAction<{ id: number; text: string }>) => {
-      const todo = state.value.find((todo) => todo.id === action.payload.id);
+    changeTodoTitle: (
+      state,
+      action: PayloadAction<{ id: number; newTitle: string }>,
+    ) => {
+      const { id, newTitle } = action.payload;
+      const todo = state.value.find((todo) => todo.id === id);
       if (todo) {
-        todo.text = action.payload.text;
+        todo.title = newTitle;
+      }
+    },
+    changeTodoText: (
+      state,
+      action: PayloadAction<{ id: number; newText: string }>,
+    ) => {
+      const { id, newText } = action.payload;
+      const todo = state.value.find((todo) => todo.id === id);
+      if (todo) {
+        todo.text = newText;
       }
     },
   },
 });
 
-export const { addTodo, removeTodo, toggleTodo, editTodo } = todoSlice.actions;
+export const {
+  addTodo,
+  removeTodo,
+  toggleTodo,
+  changeTodoText,
+  changeTodoTitle,
+} = todoSlice.actions;
 
 export default todoSlice.reducer;

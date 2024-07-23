@@ -1,6 +1,10 @@
 import { TodoTaskType } from "@/lib/features/todos/todosTypes";
 import { useAppDispatch } from "@/lib/hooks";
-import { toggleTodo } from "@/lib/features/todos/todosSlice";
+import {
+  toggleTodo,
+  changeTodoText,
+  changeTodoTitle,
+} from "@/lib/features/todos/todosSlice";
 export default function TodoTask({ task }: { task: TodoTaskType }) {
   const dispatch = useAppDispatch();
 
@@ -17,7 +21,26 @@ export default function TodoTask({ task }: { task: TodoTaskType }) {
         onChange={handleToggle}
       />
 
+      <p>{task.title}</p>
       <p>{task.text}</p>
+      <button
+        className="border border-teal-500 px-2 text-teal-500"
+        type="button"
+        onClick={() =>
+          dispatch(changeTodoText({ id: task.id, newText: "NEW TEXT" }))
+        }
+      >
+        add new text
+      </button>
+      <button
+        className="border border-teal-500 px-2 text-teal-500"
+        type="button"
+        onClick={() =>
+          dispatch(changeTodoTitle({ id: task.id, newTitle: "NEW TITLE" }))
+        }
+      >
+        add new title
+      </button>
     </div>
   );
 }

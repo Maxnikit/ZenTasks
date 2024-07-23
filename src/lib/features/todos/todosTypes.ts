@@ -2,6 +2,7 @@
 
 export type TodoTaskType = {
   id: number;
-  text: string;
+  title: string;
   completed: boolean;
+  text: string;
 };
