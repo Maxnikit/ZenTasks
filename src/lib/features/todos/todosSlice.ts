@@ -1,28 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { TodoTaskType } from "@/lib/features/todos/todosTypes";
 
-export const counterSlice = createSlice({
-  name: "counter",
-  initialState: {
-    value: 0,
-  },
+interface TodosState {
+  value: TodoTaskType[];
+}
+
+// Initial state with a type
+const initialState: TodosState = {
+  value: [],
+};
+
+export const todoSlice = createSlice({
+  name: "todos",
+  initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      state.value += 1;
+    addTodo: (state, action: PayloadAction<TodoTaskType>) => {
+      state.value.push(action.payload);
     },
-    decrement: (state) => {
-      state.value -= 1;
+    removeTodo: (state, action: PayloadAction<number>) => {
+      state.value = state.value.filter((todo) => todo.id !== action.payload);
     },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    toggleTodo: (state, action: PayloadAction<number>) => {
+      const todo = state.value.find((todo) => todo.id === action.payload);
+      if (todo) {
+        todo.completed = !todo.completed;
+      }
+    },
+    editTodo: (state, action: PayloadAction<{ id: number; text: string }>) => {
+      const todo = state.value.find((todo) => todo.id === action.payload.id);
+      if (todo) {
+        todo.text = action.payload.text;
+      }
     },
   },
 });
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addTodo, removeTodo, toggleTodo, editTodo } = todoSlice.actions;
 
-export default counterSlice.reducer;
+export default todoSlice.reducer;

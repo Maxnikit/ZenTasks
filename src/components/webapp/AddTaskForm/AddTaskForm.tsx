@@ -1,8 +1,19 @@
 import { useState } from "react";
+import { useAppDispatch } from "@/lib/hooks";
+import { addTodo } from "@/lib/features/todos/todosSlice";
 
 export default function AddTaskForm() {
   const [task, setTask] = useState("");
 
+  const dispatch = useAppDispatch();
+  const handleAddTask = (text: string) => {
+    const newTodo = {
+      id: Date.now(),
+      text: text,
+      completed: false,
+    };
+    dispatch(addTodo(newTodo));
+  };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
@@ -10,7 +21,7 @@ export default function AddTaskForm() {
       return;
     }
     console.log("Submitted task:", task);
-
+    handleAddTask(task);
     setTask("");
     console.log(task);
   };

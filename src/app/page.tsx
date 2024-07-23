@@ -4,7 +4,7 @@ import { decrement, increment } from "@/lib/features/todos/todosSlice";
 import { useAppDispatch, useAppSelector } from "@/lib/hooks";
 
 export default function Home() {
-  const count = useAppSelector((state) => state.counter.value);
+  const count = useAppSelector((state) => state.todo.value);
   const dispatch = useAppDispatch();
   return (
     <main className="flex min-h-screen flex-col items-center gap-20 p-24">
