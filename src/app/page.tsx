@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center gap-20 p-24">
       {/* <div className="flex flex-col gap-5 items-center justify-center mt-20 "> */}
-      <h1 className="text-8xl tracking-tight font-black">
+      <h1 className="text-8xl font-black tracking-tight">
         Welcome to{" "}
-        <span className=" bg-gradient-to-r from-teal-700 via-teal-500 to-teal-700 bg-clip-text  text-transparent">
+        <span className="bg-gradient-to-r from-teal-700 via-teal-500 to-teal-700 bg-clip-text text-transparent">
           ZenTasks
         </span>
       </h1>
@@ -23,7 +23,7 @@ export default function Home() {
       <Link href="/webapp">
         <button
           type="button"
-          className="text-white bg-teal-700 hover:bg-teal-800   font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 "
+          className="mb-2 me-2 rounded-full bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800"
         >
           Start now
         </button>
@@ -31,7 +31,7 @@ export default function Home() {
       <Link href="/login">
         <button
           type="button"
-          className="text-white bg-teal-700 hover:bg-teal-800   font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 "
+          className="mb-2 me-2 rounded-full bg-teal-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-teal-800"
         >
           TEMPORARY login
         </button>
