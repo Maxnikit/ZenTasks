@@ -2,13 +2,13 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { TodoListType, TodoTaskType } from "@/lib/features/todos/todosTypes";
 
 interface TodosState {
-  value: TodoTaskType[];
+  todos: TodoTaskType[];
   lists: TodoListType[];
 }
 
 // Initial state with a type
 const initialState: TodosState = {
-  value: [],
+  todos: [],
   lists: [{ id: 0, name: "inbox" }],
 };
 
