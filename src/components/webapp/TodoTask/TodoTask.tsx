@@ -20,12 +20,6 @@ export default function TodoTask({ task }: { task: TodoTaskType }) {
     setOpen(!isOpen);
   };
 
-  const handleSecondDropDown = () => {
-    console.log("SECOND");
-    console.log(isSecondDropdownOpen);
-    setSecondDropdownOpen(!isSecondDropdownOpen);
-  };
-
   // I'm not sure how it works, but it allows buttons inside the dropdown to be clickable
   const handleBlur = (event: React.FocusEvent<HTMLButtonElement>) => {
     const dropdownMenu = event.currentTarget.nextElementSibling;
@@ -46,7 +40,7 @@ export default function TodoTask({ task }: { task: TodoTaskType }) {
         checked={task.completed}
         onChange={handleToggle}
       />
-
+      <p>{task.listId}</p>
       <p>{task.title}</p>
       <p>{task.text}</p>
       <button

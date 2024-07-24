@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import { addTodo } from "@/lib/features/todos/todosSlice";
+// TODO get listId from currently selected list. 0 is placeholder
+const listId = 0;
 
 export default function AddTaskForm() {
   const [task, setTask] = useState("");
 
   const dispatch = useAppDispatch();
-  const handleAddTask = (title: string) => {
+  const handleAddTask = (title: string, listId: number) => {
     const newTodo = {
       id: Date.now(),
       title: title,
       completed: false,
       text: "",
+      listId: listId,
     };
     dispatch(addTodo(newTodo));
   };
@@ -22,7 +25,7 @@ export default function AddTaskForm() {
       return;
     }
     console.log("Submitted task:", task);
-    handleAddTask(task);
+    handleAddTask(task, listId);
     setTask("");
     console.log(task);
   };

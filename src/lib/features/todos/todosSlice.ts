@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { TodoTaskType } from "@/lib/features/todos/todosTypes";
+import { TodoListType, TodoTaskType } from "@/lib/features/todos/todosTypes";
 
 interface TodosState {
   value: TodoTaskType[];
+  lists: TodoListType[];
 }
 
 // Initial state with a type
 const initialState: TodosState = {
   value: [],
+  lists: [{ id: 0, name: "inbox" }],
 };
 
 export const todoSlice = createSlice({
@@ -46,6 +48,23 @@ export const todoSlice = createSlice({
         todo.text = newText;
       }
     },
+    addList: (state, action: PayloadAction<string>) => {
+      const newList: TodoListType = {
+        id: Date.now(),
+        name: action.payload,
+      };
+      state.lists.push(newList);
+    },
+    moveTodo: (
+      state,
+      action: PayloadAction<{ todoId: number; newListId: number }>,
+    ) => {
+      const { todoId, newListId } = action.payload;
+      const todo = state.value.find((todo) => todo.id === todoId);
+      if (todo) {
+        todo.listId = newListId;
+      }
+    },
   },
 });
 
@@ -55,6 +74,8 @@ export const {
   toggleTodo,
   changeTodoText,
   changeTodoTitle,
+  addList,
+  moveTodo,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
