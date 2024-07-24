@@ -1,7 +1,7 @@
 "use client";
 
 import AddTaskForm from "@/components/webapp/AddTaskForm/AddTaskForm";
-import TodoList from "@/components/webapp/TodoList/TodoList";
+import TodoList from "@/components/webapp/TodoList.tsx/TodoList";
 import { useState } from "react";
 
 type Props = {};

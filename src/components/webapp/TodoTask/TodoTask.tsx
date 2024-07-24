@@ -1,3 +1,4 @@
+"use client";
 import { TodoTaskType } from "@/lib/features/todos/todosTypes";
 import { useAppDispatch } from "@/lib/hooks";
 import {
