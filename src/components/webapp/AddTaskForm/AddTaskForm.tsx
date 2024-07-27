@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { useAppDispatch } from "@/lib/hooks";
 import { addTodo } from "@/lib/features/todos/todosSlice";
